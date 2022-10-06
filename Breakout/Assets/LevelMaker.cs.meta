@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 44aa3202ace01814b9df055e2d75742b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - brickPrefab: {fileID: 4701083462339110104, guid: 90a754755257dec4c892cbcc37bbebae, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
