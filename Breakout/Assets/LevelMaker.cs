@@ -9,8 +9,7 @@ public static class LevelMaker
 
     static LevelMaker ()
     {
-        LoadBrickPrefab();
-        
+        LoadBrickPrefab(); 
     }
 
     public static void CreateMap ()
@@ -21,6 +20,8 @@ public static class LevelMaker
         rows = Random.Range(1, 5);
         cols = Random.Range(7, 10);
         padding = CalcPadding(cols);
+        float BrickWidth = 3;
+        float BrickHeight = 4;
 
         for (int x = 0; x < cols; x++) 
         {
@@ -28,8 +29,8 @@ public static class LevelMaker
             {
                 GameObject brick = MonoBehaviour.Instantiate(brickPrefab);
                 brick.transform.position = new Vector3(
-                    (x * Brick.Width + Brick.Width / 2 + x * separation),
-                    -(y * Brick.Height + 1 + y * separation));
+                    (x * BrickWidth + BrickWidth / 2 + x * separation),
+                    -(y * BrickHeight + 1 + y * separation));
                 brick.transform.position += origin;
                 brick.transform.position += Vector3.right * padding;
             }
@@ -43,6 +44,7 @@ public static class LevelMaker
 
     private static float CalcPadding (int cols)
     {
-        return (Camera.Width - Brick.Width * cols - (cols-1) * separation) / 2;
+        float BrickWidth = 2;
+        return (Camera.Width - BrickWidth * cols - (cols-1) * separation) / 2;
     }
 }

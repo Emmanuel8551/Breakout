@@ -9,6 +9,7 @@ public static class Quads
     public static Sprite[] Paddles;
     public static Sprite[] Balls;
     public static Sprite[] Bricks;
+    public static Sprite[] Hearts;
 
     static Quads ()
     {
@@ -16,6 +17,7 @@ public static class Quads
         Paddles = GeneratePaddles();
         Balls = GenerateBalls();
         Bricks = GenerateBricks();
+        Hearts = GenerateHearts();
     }
 
     private static Sprite[] GeneratePaddles ()
@@ -81,8 +83,8 @@ public static class Quads
         int max = 20;
         Sprite[] bricks = new Sprite[max];
         Rect rect = new Rect(0, 240, 32, 16);
-        Brick.Width = (float)32 / pixelsPerUnit;
-        Brick.Height = (float)16 / pixelsPerUnit;
+        float BrickWidth = (float)32 / pixelsPerUnit;
+        float BrickHeight = (float)16 / pixelsPerUnit;
 
         for (int i = 0; i < max; i++)
         {
@@ -97,6 +99,23 @@ public static class Quads
         }
 
         return bricks;
+
+        Sprite GenerateQuad ()
+        {
+            return Sprite.Create(atlas, rect, Vector2.one * .5f, pixelsPerUnit);
+        }
+    }
+
+    private static Sprite[] GenerateHearts ()
+    {
+        Sprite[] hearts = new Sprite[2];
+        Rect rect = new Rect(128, 199, 10, 9);
+
+        hearts[0] = GenerateQuad();
+        rect.x += 10;
+        hearts[1] = GenerateQuad();
+
+        return hearts;
 
         Sprite GenerateQuad ()
         {

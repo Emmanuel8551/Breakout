@@ -25,10 +25,11 @@ public class StateMachine : MonoBehaviour
     {
         current.Exit();
         current = GetState(name);
+        Assert.Equals(current != null, "Failed to change state");
         current.Enter();
     }
 
-    private State GetState (string name)
+    public State GetState (string name)
     {
         for (int i = 0; i < states.Count; i++)
             if (states[i].name == $"{name}State") return states[i];
